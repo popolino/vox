@@ -1,0 +1,17 @@
+.container{
+  position: relative;
+}
+
+.tooltip{
+  white-space: nowrap;
+  margin: 1rem;
+  right: 0;
+  font-size: 1.2rem;
+  bottom: 100%;
+  position: absolute;
+  padding: 0.5rem;
+  border-radius: 0.5rem;background: var(--light);
+  color: var(--foreground);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
+  transition: 3s ease-in-out;
+}
