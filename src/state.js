@@ -1,3 +1,6 @@
+import avatar from "./img/avatar.jpg";
+import cat from "./img/image 6.png";
+
 let store = {
   friendsData: [
     {
@@ -41,6 +44,30 @@ let store = {
       unique_name: "@ezdolbaeb",
       avatar:
         "https://sun9-45.userapi.com/impg/y08oLMCJJePrSjhht5PI-HV65KHgHXjYNvclEQ/VxwPIqAonOQ.jpg?size=481x497&quality=95&sign=f8902e025da62b2800f7f06aa1304b1f&type=album",
+    },
+  ],
+  wallData: [
+    {
+      id: 1,
+      username: "Polina As Fuck",
+      avatar: avatar,
+      online: "25 minutes ago",
+      postComment: "Ivan Pashkin needs to find a job!",
+      postPic: cat,
+      likes: 2,
+      comments: 0,
+      reposts: 3,
+    },
+    {
+      id: 2,
+      username: "Polina As Fuck",
+      avatar: avatar,
+      online: "25 minutes ago",
+      postComment: "Ivan Pashkin needs to find a job!",
+      postPic: cat,
+      likes: 2,
+      comments: 0,
+      reposts: 3,
     },
   ],
 };

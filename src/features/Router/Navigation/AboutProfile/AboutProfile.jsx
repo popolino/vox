@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const AboutProfile = () => (
   <div className={classes.profile}>
     <div className="user">
-      <div className="sidebar__profile_photo">
+      <div className={`${classes.avatar} sidebar__profile_photo`}>
         <img src={avatar} alt="" />
       </div>
       <div className="about-user">

@@ -136,6 +136,64 @@ export const SvgSelector = (props) => {
         />
       </svg>
     ),
+    more: (
+      <svg
+        className={props.className}
+        width="34"
+        height="35"
+        viewBox="0 0 34 35"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect y="13.5" width="8" height="8" rx="4" fill="#84909F" />
+        <rect x="13" y="13.5" width="8" height="8" rx="4" fill="#84909F" />
+        <rect x="26" y="13.5" width="8" height="8" rx="4" fill="#84909F" />
+      </svg>
+    ),
+    image: (
+      <svg viewBox="0 0 200 200" className={props.className}>
+        <path
+          fill="none"
+          d="M145,9H55A46,46,0,0,0,9,55v90a46,46,0,0,0,46,46h90a46,46,0,0,0,46-46V55A46,46,0,0,0,145,9ZM68,62a7,7,0,1,1-7,7A7,7,0,0,1,68,62Zm118.86,73.28M17.78,167.06a279.47,279.47,0,0,0,19-20.68c7.77-9.36,15.56-19.7,27-23.9a31.73,31.73,0,0,1,33.9,8.58c2.83,3.22,6.56,7.5,10.46,5.71a8.93,8.93,0,0,0,3.28-3.37,321,321,0,0,1,23-30.08c2.48-2.88,5.09-5.77,8.45-7.52,3.55-1.86,7.7-2.3,11.71-2.16,6.57.23,13.29,2,18.26,6.35,7.05,6.1,9.52,16.1,16.05,22.76"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="18"
+        />
+      </svg>
+    ),
+    like: (
+      <svg viewBox="0 0 237.37 200">
+        className={props.className}
+        <g
+          transform="translate(-7 0)"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="23"
+        >
+          <g>
+            <path d="M125,191,37.29,109" />
+            <path d="M37.29,109A56,56,0,0,1,72,9c26.28,0,48,14.58,54,39" />
+          </g>
+          <g>
+            <path d="M214.08,109,126.37,191" />
+            <path d="M214.08,109A56,56,0,0,0,179.37,9C153.09,9,132,23.58,126,48" />
+          </g>
+        </g>
+      </svg>
+    ),
+    repost: (
+      <svg viewBox="0 0 238.5 200">
+        <path
+          d="M239,100c0,4.27-5.87,8.28-5.87,8.28l-110.24,80s-3.64,2-6.25-.67a12.74,12.74,0,0,1-3.14-6.44V126.5c-.14,0-22.27,3.05-24.06,3.51a109.24,109.24,0,0,0-27.52,11.54c-14.68,8.49-26.87,19.89-40.4,29.93,2.23-3.93,1.26-9.55,1.81-13.91.84-6.67,1.77-13.33,3.09-19.92,2.63-13.2,6.83-26.31,14.64-37.4S59.9,80.63,71.68,73.87A250.53,250.53,0,0,1,94.76,62.51c1.58-.7,18.74-7,18.74-8V19.12S114,16,117.68,12.3s10,1.77,10,1.77L232.88,90.42S239,95.68,239,100Z"
+          transform="translate(-11.02 -0.5)"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="21"
+        />
+      </svg>
+    ),
     placeholder: (
       <svg
         className={props.className}
@@ -143,7 +201,6 @@ export const SvgSelector = (props) => {
         height="16"
         viewBox="0 0 20 16"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
       >
         <g>
           <path

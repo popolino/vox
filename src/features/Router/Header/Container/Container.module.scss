@@ -14,7 +14,8 @@
 }
 
 .search {
-  width: 42rem;
+  max-width: 42rem;
+  width: 100%;
   padding: 1.4rem 3rem;
   background-color: var(--background);
   border-radius: 1.5rem;
@@ -45,7 +46,7 @@
   display: flex;
   align-items: center;
 }
-@media all and (max-width: 450px){
+@media all and (max-width: 480px){
   .search {
     width: 2rem;
     padding: 1rem 3rem;

@@ -8,7 +8,7 @@ import Tooltip from "@mui/material/Tooltip";
 const SidebarFriend = (props) => {
   return (
     <div className={`${classes.user} user`}>
-      <div className="sidebar__profile_photo">
+      <div className={`${classes.avatar} sidebar__profile_photo`}>
         <img src={props.avatar} alt="" />
       </div>
       <div className="about-user">
@@ -18,7 +18,7 @@ const SidebarFriend = (props) => {
       <Tooltip
         title="Add message"
         placement="left"
-        classes={{ tooltip: ".tooltip" }}
+        classes={{ tooltip: "tooltip" }}
       >
         <button className={classes.comment}>
           <SvgSelector id="comment" />

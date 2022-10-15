@@ -3,13 +3,18 @@
   font-family: 'Mulish', sans-serif;
   box-sizing: border-box;
 }
-@media(max-width: 450px) {
+@media(max-width: 480px) {
   *, *:after, *:before {
     font-size: calc(8px + 2 * (100vw / 1920));
   }
 }@media(min-width: 1920px) {
   *, *:after, *:before {
     font-size: calc(2px + 8 * (100vw / 1920));
+  }
+}
+@media(max-width: 400px) {
+  *, *:after, *:before {
+    font-size: calc(6px + 4 * (100vw / 1920));
   }
 }
 * {
