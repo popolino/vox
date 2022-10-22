@@ -13,14 +13,8 @@ const Router = () => (
       <Navigation />
       <div className="container-main">
         <Routes>
-          <Route
-            path="/profile"
-            element={<Profile wallData={store.wallData} />}
-          ></Route>
-          <Route
-            path="/"
-            element={<Profile wallData={store.wallData} />}
-          ></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/" element={<Profile />}></Route>
         </Routes>
       </div>
       <SidebarFriends friendsData={store.friendsData} />

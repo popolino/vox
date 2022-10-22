@@ -83,10 +83,22 @@ main {
   padding: 0.5rem 0 0;
 }
 .post-container {
+  display: flex;
+  flex-direction: column;
   background-color: var(--white);
   border-radius: 1.8rem;
   margin: 2.5rem 0 ;
   padding: 3rem 3rem 0.5rem 3rem ;
+  button{
+    background: var(--main);
+    color: var(--background-light);
+    padding: .2rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: 7rem;
+    margin: 1rem 11rem
+  ;
+  }
 }
 .tooltip {
   font-size: 1.2rem !important;

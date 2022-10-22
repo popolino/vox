@@ -7,14 +7,30 @@ import { SvgSelector } from "../../components/SvgSelector/SvgSelector";
 import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import NewPost from "./NewPost/NewPost";
 import Wall from "./Wall/Wall";
-import store from "../../state";
+import { connect } from "react-redux";
+import { addPost, setPostText } from "../../actions";
 
-const Profile = (props) => (
+const Profile = ({ wallData, createPost, postText, changePostText }) => (
   <div className={classes.container}>
     <ProfileHeader />
-    <NewPost />
-    <Wall wallData={props.wallData} />
+    <NewPost
+      createPost={createPost}
+      postText={postText}
+      changePostText={changePostText}
+    />
+    <Wall wallData={wallData} />
   </div>
 );
+const mapStateToProps = (state) => ({
+  wallData: state.profileReducer.wallData,
+  postText: state.profileReducer.postText,
+});
 
-export default Profile;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createPost: (post) => dispatch(addPost(post)),
+    changePostText: (postText) => dispatch(setPostText(postText)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

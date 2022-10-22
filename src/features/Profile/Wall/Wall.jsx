@@ -6,9 +6,9 @@ import { SvgSelector } from "../../../components/SvgSelector/SvgSelector";
 import Post from "./Post/Post";
 import SidebarFriend from "../../Router/SidebarFriends/SidebarFriend/SidebarFriend";
 
-const Wall = (props) => (
+const Wall = ({ wallData }) => (
   <div className="post-container">
-    {props.wallData.map((item) => (
+    {wallData.map((item) => (
       <Post
         key={item.id}
         username={item.username}
