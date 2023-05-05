@@ -3,6 +3,7 @@
   font-weight: 800;
   font-size: 2rem;
   white-space: nowrap;
+  text-transform: capitalize;
 }
 .avatar {
   min-height: 6.4rem;
@@ -62,7 +63,7 @@
   }
   p{
     position: absolute;
-    left: 3rem;
+    left: 4rem;
     top: 0;
     bottom: 0;
     margin-top: auto;

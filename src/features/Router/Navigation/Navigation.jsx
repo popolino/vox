@@ -1,14 +1,12 @@
 import React from "react";
 import classes from "./Navigation.module.scss";
-import avatar from "../../../img/avatar.jpg";
-import { SvgSelector } from "../../../components/SvgSelector/SvgSelector";
-import AboutProfile from "./AboutProfile/AboutProfile";
 import NavList from "./NavList/NavList";
+import AboutProfileContainer from "./AboutProfile/AboutProfileContainer";
 
 const Navigation = (props) => {
   return (
     <nav className={classes.sidebar}>
-      <AboutProfile />
+      <AboutProfileContainer {...props} />
       <NavList />
     </nav>
   );

@@ -1,25 +1,32 @@
 import React from "react";
 import Header from "./Header/Header";
 import Navigation from "./Navigation/Navigation";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Profile from "../Profile/Profile";
-import SidebarFriends from "./SidebarFriends/SidebarFriends";
-import store from "../../state";
+import { Routes, Route } from "react-router-dom";
+import UsersAPIComponent from "../Friends/UsersContainer";
+import ProfileContainer from "../Profile/ProfileContainer";
+import SidebarFriendsContainer from "./SidebarFriends/SidebarFriendsContainer";
 
-const Router = () => (
-  <BrowserRouter>
-    <Header />
-    <main>
-      <Navigation />
-      <div className="container-main">
-        <Routes>
-          <Route path="/profile" element={<Profile />}></Route>
-          <Route path="/" element={<Profile />}></Route>
-        </Routes>
-      </div>
-      <SidebarFriends friendsData={store.friendsData} />
-    </main>
-  </BrowserRouter>
-);
+const Router = (props) => {
+  return (
+    <>
+      <Header />
+      <main>
+        <Navigation {...props} />
+        <div className="container-main">
+          <Routes>
+            <Route
+              path="/profile/:userId"
+              element={<ProfileContainer {...props} />}
+            />
+            <Route path="/profile/" element={<ProfileContainer {...props} />} />
+            <Route path="/" element={<ProfileContainer {...props} />} />
+            <Route path="/friends" element={<UsersAPIComponent {...props} />} />
+          </Routes>
+        </div>
+        <SidebarFriendsContainer {...props} />
+      </main>
+    </>
+  );
+};
 
 export default Router;

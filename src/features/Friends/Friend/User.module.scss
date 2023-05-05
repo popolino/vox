@@ -1,0 +1,13 @@
+
+.friend{
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  justify-content: center;
+  align-items: center;
+  & > p {
+    color: var(--title);
+    font-weight: 800;
+    font-size: 2rem;
+  }
+}

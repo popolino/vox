@@ -2,6 +2,7 @@
   font-size: calc(3px + 7 * (100vw / 1920));
   font-family: 'Mulish', sans-serif;
   box-sizing: border-box;
+
 }
 @media(max-width: 480px) {
   *, *:after, *:before {
@@ -21,6 +22,7 @@
   padding: 0;
   margin: 0;
   border: 0;
+
 }
 
 :focus, :active {
@@ -58,7 +60,7 @@ button {
 
 button::-moz-focus-inner {
   padding: 0;
-  borer: 0;
+  border: 0;
 }
 
 a, a:visited {

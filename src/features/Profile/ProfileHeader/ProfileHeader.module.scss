@@ -63,7 +63,7 @@
     font-weight: 700;
     font-size: 2.8rem;
     color: var(--dark);
-
+    text-transform: capitalize;
   }
 }
 
@@ -132,8 +132,13 @@
   margin-bottom: 2rem;
   width: 100%;
   text-align: left;
+  & > p{
+    font-size: inherit;
+    color: var(--transition-gray);
+  }
 }
 .edit {
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: left;

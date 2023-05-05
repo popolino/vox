@@ -206,8 +206,8 @@ export const SvgSelector = (props) => {
           <path
             d="M17.8414 0.719971H2.15923C1.36435 0.719971 0.719971 1.36435 0.719971 2.15923V13.8413C0.719971 14.6362 1.36435 15.2805 2.15923 15.2805H17.8414C18.6363 15.2805 19.2807 14.6362 19.2807 13.8413V2.15923C19.2807 1.36435 18.6363 0.719971 17.8414 0.719971Z"
             stroke="#84909F"
-            stroke-width="2"
-            stroke-miterlimit="10"
+            strokeWidth="2"
+            strokeMiterlimit="10"
           />
           <path
             d="M2.80005 13.2005V11.2516L6.03778 8.01389L7.65144 9.62835L12.8805 4.40015L17.1606 8.68032V13.2005H2.80005Z"
@@ -221,6 +221,33 @@ export const SvgSelector = (props) => {
         <defs>
           <rect width="20" height="15.9998" />
         </defs>
+      </svg>
+    ),
+    preloader: (
+      <svg
+        className={props.className}
+        display="block"
+        shapeRendering="auto"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          fill="none"
+          strokeWidth="10"
+          r="35"
+          strokeDasharray="164.93361431346415 56.97787143782138"
+        >
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            repeatCount="indefinite"
+            dur="1s"
+            values="0 50 50;360 50 50"
+            keyTimes="0;1"
+          />
+        </circle>
       </svg>
     ),
   };

@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./ProfileHeader.module.scss";
 import header from "../../../img/image 4.png";
 import avatar from "../../../img/avatar.jpg";
 import { SvgSelector } from "../../../components/SvgSelector/SvgSelector";
 import { connect } from "react-redux";
+import { changeStatus, hideEdit, setStatus, showEdit } from "../../../actions";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileHeader = ({ status }) => {
+const ProfileHeader = (props) => {
+  const [editMode, setEditMode] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const onChangeStatus = (newStatus) => {
+    setStatus(newStatus);
+  };
+  const onShowEdit = () => {
+    setEditMode(true);
+  };
+  const onHideEdit = () => {
+    setEditMode(false);
+  };
+  useEffect(() => {
+    props.status && setStatus(props.status);
+  }, [props.status]);
   return (
     <div className={classes.header}>
       <div className={classes.image}>
@@ -17,23 +34,36 @@ const ProfileHeader = ({ status }) => {
             <div
               className={`${classes["header-avatar"]} sidebar__profile_photo`}
             >
-              <img src={avatar} alt="" />
+              <img
+                src={
+                  props.profile && props.profile.photos.small
+                    ? props.profile.photos.small
+                    : avatar
+                }
+                alt=""
+              />
             </div>
             <div className={`${classes["header-unique-name"]} unique-name`}>
-              @pizdosovaya
+              {props.profile ? `@user${props.profile.userId}` : props.email}
             </div>
           </div>
         </div>
         <div className={classes["about-user"]}>
           <div className={classes["about-user__content"]}>
             <div className={classes.username}>
-              <p>Polina As Fuck</p>
+              <p>{props.profile ? props.profile.fullName : props.login}</p>
             </div>
-            <div className={classes.edit}>
-              <input type="text" />
-              <button className={classes.button}>save</button>
-            </div>
-            <button className={classes.status}>{status}</button>
+            <ProfileStatusWithHooks
+              {...props}
+              status={props.status}
+              updateStatus={props.updateStatus}
+              onHideEdit={onHideEdit}
+              onShowEdit={onShowEdit}
+              editMode={editMode}
+              onChangeStatus={onChangeStatus}
+              newStatus={status}
+              getStatus={props.getStatus}
+            />
           </div>
           <div className={classes.online}>
             <p>Last seen 22 minutes ago</p>
@@ -68,6 +98,7 @@ const ProfileHeader = ({ status }) => {
           </div>
           <SvgSelector id="more" className={classes.more} />
         </div>
+        {editMode && <div className="backdrop" onClick={onHideEdit}/>}
       </div>
     </div>
   );
@@ -75,14 +106,15 @@ const ProfileHeader = ({ status }) => {
 
 function mapStateToProps(state) {
   const { profileReducer } = state;
-
   return {
+    edit: profileReducer.edit,
     status: profileReducer.status,
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileHeader);
+export default connect(mapStateToProps, {
+  showEdit,
+  hideEdit,
+  changeStatus,
+  setStatus,
+})(ProfileHeader);
