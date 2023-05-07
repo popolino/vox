@@ -2,7 +2,12 @@ import "./App.scss";
 import "./reset.css";
 import React from "react";
 import Router from "./features/Router/Router";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useParams,
+  HashRouter,
+} from "react-router-dom";
 import AuthContainer from "./features/Auth/AuthContainer";
 import { connect } from "react-redux";
 import { compose } from "redux";
@@ -19,12 +24,12 @@ class App extends React.Component {
     if (!this.props.initialized) return <Preloader />;
 
     return (
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/auth/*" element={<AuthContainer {...this.props} />} />
           <Route path="/*" element={<Router {...this.props} />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

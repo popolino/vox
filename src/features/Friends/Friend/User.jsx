@@ -1,11 +1,12 @@
 import React from "react";
 import classes from "./User.module.scss";
 import { NavLink } from "react-router-dom";
+import { clsx } from "clsx";
 
 const User = (props) => {
   return (
     <div className={classes.friend}>
-      <div className="avatar">
+      <div className={clsx("avatar", classes.avatar)}>
         <NavLink to={`/profile/${props.id}`}>
           <img src={props.photos} alt="" />
         </NavLink>

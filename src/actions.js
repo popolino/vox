@@ -23,6 +23,7 @@ import {
   UNFOLLOW,
   ADD_USER_IN_FRIENDS_ARRAY,
   SET_FRIENDS,
+  SAVE_PHOTO_SUCCESS,
 } from "./types";
 
 export const showEdit = () => {
@@ -158,5 +159,11 @@ export const addUserInFriendsArray = (user) => {
   return {
     type: ADD_USER_IN_FRIENDS_ARRAY,
     user,
+  };
+};
+export const savePhotoSuccess = (photos) => {
+  return {
+    type: SAVE_PHOTO_SUCCESS,
+    photos,
   };
 };

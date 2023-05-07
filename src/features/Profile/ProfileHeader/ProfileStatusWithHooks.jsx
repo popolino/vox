@@ -24,7 +24,7 @@ const ProfileStatusWithHooks = (props) => {
           </button>
         </div>
       )}
-      {props.profile && props.profile.userId === props.id && (
+      {props.owner && (
         <button
           className={classes.status}
           onClick={() => {
@@ -37,7 +37,7 @@ const ProfileStatusWithHooks = (props) => {
           )}
         </button>
       )}
-      {props.profile && props.profile.userId !== props.id && props.status && (
+      {!props.owner && props.status && (
         <div className={classes.status}>
           <p>{props.status}</p>
         </div>

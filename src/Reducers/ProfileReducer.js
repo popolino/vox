@@ -3,6 +3,7 @@ import {
   CHANGE_STATUS,
   HIDE_BUTTON,
   HIDE_EDIT,
+  SAVE_PHOTO_SUCCESS,
   SET_POST_TEXT,
   SET_STATUS,
   SET_USER_PROFILE,
@@ -12,7 +13,7 @@ import {
 import avatar from "../img/avatar.jpg";
 import cat from "../img/image 6.png";
 import me from "../img/pp.jpg";
-import { setStatus, setUserProfile } from "../actions";
+import { savePhotoSuccess, setStatus, setUserProfile } from "../actions";
 import { profileAPI, usersAPI } from "../api/api";
 
 const initialState = {
@@ -102,6 +103,11 @@ export const profileReducer = (state = initialState, action) => {
         ...state,
         profile: action.profile,
       };
+    case SAVE_PHOTO_SUCCESS:
+      return {
+        ...state,
+        profile: { ...state.profile, photos: action.photos },
+      };
     default:
       return state;
   }
@@ -119,4 +125,9 @@ export const getStatusThunk = (userId) => async (dispatch) => {
 export const updateStatusThunk = (status) => async (dispatch) => {
   let response = await profileAPI.updateStatus(status);
   if (response.data.resultCode === 0) dispatch(setStatus(status));
+};
+export const savePhoto = (file) => async (dispatch) => {
+  let response = await profileAPI.savePhoto(file);
+  if (response.data.resultCode === 0)
+    dispatch(savePhotoSuccess(response.data.data.photos));
 };

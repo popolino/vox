@@ -9,6 +9,7 @@ import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileHeader = (props) => {
   const [editMode, setEditMode] = useState(false);
+  const [changePhoto, setChangePhoto] = useState(false);
   const [status, setStatus] = useState("");
 
   const onChangeStatus = (newStatus) => {
@@ -20,6 +21,13 @@ const ProfileHeader = (props) => {
   const onHideEdit = () => {
     setEditMode(false);
   };
+  const handleChangePhoto = () => {
+    changePhoto ? setChangePhoto(false) : setChangePhoto(true);
+  };
+  const onMainPhotoSelected = (event) => {
+    event.target.files.length && props.savePhoto(event.target.files[0]);
+  };
+  const owner = props.profile && props.profile.userId === props.id;
   useEffect(() => {
     props.status && setStatus(props.status);
   }, [props.status]);
@@ -55,6 +63,7 @@ const ProfileHeader = (props) => {
             </div>
             <ProfileStatusWithHooks
               {...props}
+              owner={owner}
               status={props.status}
               updateStatus={props.updateStatus}
               onHideEdit={onHideEdit}
@@ -96,9 +105,21 @@ const ProfileHeader = (props) => {
               </div>
             </div>
           </div>
-          <SvgSelector id="more" className={classes.more} />
+          {owner && (
+            <div className={classes["change-container"]}>
+              <input
+                type="file"
+                name="file"
+                className={changePhoto ? classes.change : classes.hide}
+                onChange={onMainPhotoSelected}
+              />
+              <button onClick={handleChangePhoto} className={classes.more}>
+                <SvgSelector id="more" />
+              </button>
+            </div>
+          )}
         </div>
-        {editMode && <div className="backdrop" onClick={onHideEdit}/>}
+        {editMode && <div className="backdrop" onClick={onHideEdit} />}
       </div>
     </div>
   );

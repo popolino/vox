@@ -11,3 +11,12 @@
     font-size: 2rem;
   }
 }
+.avatar{
+  & > a{
+    & > img{
+
+      width: 100%;
+    }
+  }
+
+}
