@@ -2,7 +2,6 @@ import classes from "./ProfileHeader.module.scss";
 import React from "react";
 
 const ProfileStatusWithHooks = (props) => {
-  console.log(props.status);
   return (
     <div>
       {props.editMode && (

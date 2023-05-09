@@ -6,11 +6,13 @@ import { SvgSelector } from "../../../components/SvgSelector/SvgSelector";
 import { connect } from "react-redux";
 import { changeStatus, hideEdit, setStatus, showEdit } from "../../../actions";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import ProfileReduxForm from "./ProfileDataForm";
 
 const ProfileHeader = (props) => {
   const [editMode, setEditMode] = useState(false);
   const [changePhoto, setChangePhoto] = useState(false);
   const [status, setStatus] = useState("");
+  const [profileEditMode, setProfileEditMode] = useState(false);
 
   const onChangeStatus = (newStatus) => {
     setStatus(newStatus);
@@ -27,7 +29,10 @@ const ProfileHeader = (props) => {
   const onMainPhotoSelected = (event) => {
     event.target.files.length && props.savePhoto(event.target.files[0]);
   };
-  const owner = props.profile && props.profile.userId === props.id;
+  const onSubmit = (formData) => {
+    setProfileEditMode(false);
+    props.saveProfile(formData);
+  };
   useEffect(() => {
     props.status && setStatus(props.status);
   }, [props.status]);
@@ -63,7 +68,7 @@ const ProfileHeader = (props) => {
             </div>
             <ProfileStatusWithHooks
               {...props}
-              owner={owner}
+              owner={props.owner}
               status={props.status}
               updateStatus={props.updateStatus}
               onHideEdit={onHideEdit}
@@ -72,6 +77,13 @@ const ProfileHeader = (props) => {
               onChangeStatus={onChangeStatus}
               newStatus={status}
               getStatus={props.getStatus}
+            />
+            <ProfileReduxForm
+              {...props}
+              owner={props.owner}
+              onSubmit={onSubmit}
+              profileEditMode={profileEditMode}
+              setProfileEditMode={setProfileEditMode}
             />
           </div>
           <div className={classes.online}>
@@ -105,7 +117,7 @@ const ProfileHeader = (props) => {
               </div>
             </div>
           </div>
-          {owner && (
+          {props.owner && (
             <div className={classes["change-container"]}>
               <input
                 type="file"

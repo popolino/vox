@@ -24,6 +24,7 @@ import {
   ADD_USER_IN_FRIENDS_ARRAY,
   SET_FRIENDS,
   SAVE_PHOTO_SUCCESS,
+  GET_CAPTCHA_URL,
 } from "./types";
 
 export const showEdit = () => {
@@ -165,5 +166,11 @@ export const savePhotoSuccess = (photos) => {
   return {
     type: SAVE_PHOTO_SUCCESS,
     photos,
+  };
+};
+export const getCaptchaUrlSuccess = (url) => {
+  return {
+    type: GET_CAPTCHA_URL,
+    url,
   };
 };

@@ -17,7 +17,7 @@ const NewPostForm = (props) => {
         <div className={`${classes.avatar} sidebar__profile_photo`}>
           <img src={avatar} alt="" />
         </div>
-        <div>
+        <div className={classes.textarea}>
           <Field
             name={"post"}
             component={FormsControls}

@@ -40,6 +40,15 @@ const LoginForm = (props) => {
             </>
           }
         />
+        {props.captchaUrl && <img src={props.captchaUrl} alt="" />}
+        {props.captchaUrl && (
+          <Field
+            name={"symbols from image"}
+            component={FormsControls}
+            children={<TextField label="email" variant="standard" />}
+            validate={[required]}
+          />
+        )}
       </div>
       {props.error && <div className="form-summary-error">{props.error}</div>}{" "}
       <button className={classes.button}>Sign in</button>

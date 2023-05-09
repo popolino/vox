@@ -13,9 +13,11 @@ const NewPost = (props) => {
   };
   return (
     <>
-      <div className="post-container" id="text" ref={ref}>
-        <PostReduxForm onSubmit={onAddPost} {...props} />
-      </div>
+      {props.owner && (
+        <div className="post-container" id="text" ref={ref}>
+          <PostReduxForm onSubmit={onAddPost} {...props} />
+        </div>
+      )}
     </>
   );
 };

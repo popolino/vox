@@ -25,7 +25,13 @@ const NavList = (props) => {
       <NavLinkComponent path="/videos" id="videos" section="Videos" />
       <NavLinkComponent path="/feed" id="feed" section="Feed" />
       <NavLinkComponent path="/settings" id="settings" section="Settings" />
-      <button onClick={onLogout}>Logout</button>
+      <NavLinkComponent
+        path="/auth/login"
+        id="logout"
+        section="Logout"
+        onLogout={onLogout}
+      />
+      {/*<button onClick={onLogout}>Logout</button>*/}
     </div>
   );
 };

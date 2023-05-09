@@ -7,7 +7,13 @@ import { Navigate } from "react-router";
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    props.loginThunk(formData.email, formData.password, formData.rememberMe);
+    props.loginThunk(
+      formData.email,
+      formData.password,
+      formData.rememberMe,
+      formData.captchaUrl
+    );
+    console.log(formData);
   };
   if (props.isAuth) {
     return <Navigate to={"/profile"} />;
@@ -23,7 +29,7 @@ const Login = (props) => {
           <h2>Please enter your details</h2>
           <a href="#">Forget password?</a>
         </div>
-        <LoginReduxForm onSubmit={onSubmit} />
+        <LoginReduxForm onSubmit={onSubmit} {...props} />
         <p className={classes.separator}>or</p>
       </div>
     </>
@@ -34,6 +40,7 @@ const mapStateToProps = (state) => {
   const { authReducer } = state;
   return {
     isAuth: authReducer.isAuth,
+    captchaUrl: authReducer.captchaUrl,
   };
 };
 

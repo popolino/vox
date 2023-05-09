@@ -6,6 +6,7 @@ import {
   getStatusThunk,
   getUserProfileThunk,
   savePhoto,
+  saveProfile,
   updateStatusThunk,
 } from "../../Reducers/ProfileReducer";
 import { compose } from "redux";
@@ -19,16 +20,21 @@ class ProfileContainer extends React.Component {
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
     const currentUserId = +this.props.match.params.userId || this.props.id;
+    console.log(this.props);
     const prevUserId = +prevProps.match.params.userId;
     if (!prevUserId) return;
     if (currentUserId !== prevUserId) {
       this.props.getStatusThunk(currentUserId);
       this.props.getUserProfileThunk(currentUserId);
     }
+
   }
 
   render() {
-    return <Profile {...this.props} />;
+    const owner =
+      this.props.profile && this.props.profile.userId === this.props.id;
+
+    return <Profile {...this.props} owner={owner} />;
   }
 }
 const mapStateToProps = (state) => {
@@ -56,6 +62,7 @@ export default compose(
     getStatusThunk,
     getUserProfileThunk,
     savePhoto,
+    saveProfile,
   }),
   withRouter
 )(ProfileContainer);

@@ -194,6 +194,22 @@ export const SvgSelector = (props) => {
         />
       </svg>
     ),
+    logout: (
+      <svg viewBox="0 0 24 24">
+        <svg
+          className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiBox-root css-uqopch"
+          focusable="false"
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          data-testid="LogoutOutlinedIcon"
+        >
+          <path
+            strokeWidth="0.5"
+            d="m17 8-1.41 1.41L17.17 11H9v2h8.17l-1.58 1.58L17 16l4-4-4-4zM5 5h7V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h7v-2H5V5z"
+          />
+        </svg>
+      </svg>
+    ),
     placeholder: (
       <svg
         className={props.className}

@@ -1,24 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./AboutProfile.module.scss";
-import avatar from "../../../../img/avatar.jpg";
 import { NavLink } from "react-router-dom";
 
 const AboutProfile = (props) => {
-  console.log(props);
+  const [authUser, setAuthUser] = useState(null);
+  useEffect(() => {
+    if (props.profile && props.profile.userId === props.id)
+      setAuthUser(props.profile);
+  }, [props.profile]);
   return (
     <div className={classes.profile}>
       <div className="user">
         <div className={`${classes.avatar} sidebar__profile_photo`}>
-          <img src={avatar} alt="#" />
+          <img src={authUser && authUser.photos.small} alt="#" />
         </div>
         <div className="about-user">
           <NavLink to="/profile">
-            <div className="username">
-              {props.isAuth ? props.login : "UserName"}
-            </div>
+            <div className="username">{authUser && authUser.fullName}</div>
           </NavLink>
           <div className="unique-name">
-            {props.isAuth ? props.email : `@user`}
+            {authUser && `@user${authUser.userId}`}
           </div>
         </div>
       </div>

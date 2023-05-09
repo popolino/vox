@@ -2,17 +2,17 @@ import * as React from "react";
 import AboutProfile from "./AboutProfile";
 import { connect } from "react-redux";
 import { setUserData } from "../../../../actions";
+import { getUserProfileThunk } from "../../../../Reducers/ProfileReducer";
 
 class AboutProfileContainer extends React.Component {
+  componentDidMount() {
+    this.props.getUserProfileThunk(this.props.id);
+  }
   render() {
     return (
-      <AboutProfile
-        {...this.props}
-        login={this.props.login}
-        email={this.props.email}
-        isAuth={this.props.isAuth}
-        id={this.props.id}
-      />
+      <div>
+        <AboutProfile {...this.props} />
+      </div>
     );
   }
 }
@@ -20,10 +20,12 @@ class AboutProfileContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     isAuth: state.authReducer.isAuth,
-    login: state.authReducer.login,
-    email: state.authReducer.email,
     id: state.authReducer.id,
+    profile: state.profileReducer.profile,
+    initialized: state.appReducer.initialized,
   };
 };
 
-export default connect(mapStateToProps, { setUserData })(AboutProfileContainer);
+export default connect(mapStateToProps, { setUserData, getUserProfileThunk })(
+  AboutProfileContainer
+);

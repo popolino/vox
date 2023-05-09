@@ -131,3 +131,8 @@ export const savePhoto = (file) => async (dispatch) => {
   if (response.data.resultCode === 0)
     dispatch(savePhotoSuccess(response.data.data.photos));
 };
+export const saveProfile = (profile) => async (dispatch, getState) => {
+  const userId = getState().authReducer.id;
+  let response = await profileAPI.saveProfile(profile);
+  if (response.data.resultCode === 0) dispatch(getUserProfileThunk(userId));
+};

@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 
 export const NavLinkComponent = (props) => (
   <NavLink
+    onClick={props.onLogout}
     to={props.path}
     className={(navData) =>
       navData.isActive ? `${classes.active} ${classes.link}` : classes.link
