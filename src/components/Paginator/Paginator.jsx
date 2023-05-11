@@ -58,7 +58,9 @@ const Paginator = (props) => {
             props.currentPage === pageCountSize ? classes.selected : ""
           }
           onClick={() => {
-            props.selectCurrentPage(pageCountSize)}}
+            props.selectCurrentPage(pageCountSize);
+            props.onPageChanged(pageCountSize);
+          }}
         >
           {pageCountSize}
         </button>

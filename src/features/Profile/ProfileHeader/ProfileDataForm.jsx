@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import {
-  Input,
-} from "../../../components/FormsControls/FormsControls";
+import React from "react";
+import { Input } from "../../../components/FormsControls/FormsControls";
 import { Field, reduxForm } from "redux-form";
 import classes from "./ProfileHeader.module.scss";
 import { clsx } from "clsx";
