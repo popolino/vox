@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/vox/static/css/main.07127644.css",
-    "main.js": "/vox/static/js/main.589a6dca.js",
+    "main.css": "/vox/static/css/main.d4d0b1bc.css",
+    "main.js": "/vox/static/js/main.77caf81e.js",
     "static/js/787.eaaab13d.chunk.js": "/vox/static/js/787.eaaab13d.chunk.js",
     "static/media/image 6.png": "/vox/static/media/image 6.f3f557104814045c23fb.png",
     "static/media/image 4.png": "/vox/static/media/image 4.84939876437f50da8e21.png",
@@ -9,12 +9,12 @@
     "static/media/avatar.jpg": "/vox/static/media/avatar.8ee58ce0c7c35dc8ce96.jpg",
     "static/media/pp.jpg": "/vox/static/media/pp.a553a1225a76e7c7cee0.jpg",
     "index.html": "/vox/index.html",
-    "main.07127644.css.map": "/vox/static/css/main.07127644.css.map",
-    "main.589a6dca.js.map": "/vox/static/js/main.589a6dca.js.map",
+    "main.d4d0b1bc.css.map": "/vox/static/css/main.d4d0b1bc.css.map",
+    "main.77caf81e.js.map": "/vox/static/js/main.77caf81e.js.map",
     "787.eaaab13d.chunk.js.map": "/vox/static/js/787.eaaab13d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07127644.css",
-    "static/js/main.589a6dca.js"
+    "static/css/main.d4d0b1bc.css",
+    "static/js/main.77caf81e.js"
   ]
 }
